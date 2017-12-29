@@ -2,12 +2,12 @@ from sklearn.linear_model import LinearRegression
 import pandas
 import coremltools
 
-data = pandas.read_csv("cars.csv")
+data = pandas.read_csv("cars_with_batteries.csv")
 
 model = LinearRegression()
-model.fit(data[["model", "premium", "mileage", "condition"]], data["price"])
+model.fit(data[["model", "premium", "mileage", "condition", "battery"]], data["price"])
 
-coreml_model = coremltools.converters.sklearn.convert(model, ["model", "premium", "mileage", "condition"], "price")
+coreml_model = coremltools.converters.sklearn.convert(model, ["model", "premium", "mileage", "condition", "battery"], "price")
 
 coreml_model.author = "Nic Ollis"
 coreml_model.license = "MIT"

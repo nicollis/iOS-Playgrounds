@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var upgrades: UISegmentedControl!
     @IBOutlet weak var mileageLabel: UILabel!
     @IBOutlet weak var mileage: UISlider!
+    @IBOutlet weak var battery: UISegmentedControl!
     @IBOutlet weak var condition: UISegmentedControl!
     @IBOutlet weak var valuation: UILabel!
     
@@ -38,7 +39,8 @@ class ViewController: UIViewController {
             model:Double(model.selectedSegmentIndex),
             premium: Double(upgrades.selectedSegmentIndex),
             mileage: Double(mileage.value),
-            condition: Double(condition.selectedSegmentIndex)) {
+            condition: Double(condition.selectedSegmentIndex),
+            battery: Double(battery.selectedSegmentIndex)) {
             // clamp the price so it's at least $2000
             let clampedValuation = max(2000, prediction.price)
             
@@ -58,6 +60,7 @@ class ViewController: UIViewController {
         stackView.setCustomSpacing(30, after: model)
         stackView.setCustomSpacing(30, after: upgrades)
         stackView.setCustomSpacing(30, after: mileage)
+        stackView.setCustomSpacing(30, after: battery)
         stackView.setCustomSpacing(60, after: condition)
         
         calculateValue(self)

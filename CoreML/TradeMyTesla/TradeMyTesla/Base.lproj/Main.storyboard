@@ -76,7 +76,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Gb6-ti-M10">
-                                <rect key="frame" x="20" y="40" width="335" height="338"/>
+                                <rect key="frame" x="20" y="40" width="335" height="396.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MODEL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YkH-lA-L3b">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
@@ -123,14 +123,31 @@
                                             <action selector="calculateValue:" destination="taM-5w-qH4" eventType="valueChanged" id="Vdb-mm-gXz"/>
                                         </connections>
                                     </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONDITION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlK-eT-VnF">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BATTERY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZW-i2-eko">
                                         <rect key="frame" x="0.0" y="177.5" width="335" height="20.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="Ayy-b4-3cW">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="6k9-MW-O6a">
                                         <rect key="frame" x="0.0" y="203" width="335" height="29"/>
+                                        <segments>
+                                            <segment title="100 kWh"/>
+                                            <segment title="90 kWh"/>
+                                            <segment title="75 kWh"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="calculateValue:" destination="taM-5w-qH4" eventType="valueChanged" id="nkJ-BF-Jmh"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONDITION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlK-eT-VnF">
+                                        <rect key="frame" x="0.0" y="236" width="335" height="20.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="Ayy-b4-3cW">
+                                        <rect key="frame" x="0.0" y="261.5" width="335" height="29"/>
                                         <segments>
                                             <segment title="Poor"/>
                                             <segment title="OK"/>
@@ -142,13 +159,13 @@
                                         </connections>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRADE YOUR TESLA FOR..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozb-TT-RfH">
-                                        <rect key="frame" x="0.0" y="236" width="335" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="294.5" width="335" height="20.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$99,999" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t6I-ou-s4t">
-                                        <rect key="frame" x="0.0" y="261.5" width="335" height="76.5"/>
+                                        <rect key="frame" x="0.0" y="320" width="335" height="76.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="64"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -166,6 +183,7 @@
                         <viewLayoutGuide key="safeArea" id="z6m-a6-5dE"/>
                     </view>
                     <connections>
+                        <outlet property="battery" destination="6k9-MW-O6a" id="KnZ-1i-zwm"/>
                         <outlet property="condition" destination="Ayy-b4-3cW" id="2tL-Pz-85f"/>
                         <outlet property="mileage" destination="1UE-8N-CqM" id="3MC-A6-Jfo"/>
                         <outlet property="mileageLabel" destination="Xth-zb-6En" id="wLF-1B-cM5"/>
