@@ -23,6 +23,7 @@ class Scene: SKScene {
         }
     }
     let startTime = Date()
+    let targetDistanceRandomizer = GKRandomDistribution(lowestValue: -5, highestValue: -1)
     
     // Mark: Instance Methods
     
@@ -52,7 +53,8 @@ class Scene: SKScene {
         
         // move the anchor 1.5m out
         var translation = matrix_identity_float4x4
-        translation.columns.3.z = -1.5
+        translation.columns.3.z = targetDistanceRandomizer.nextUniform()
+        print("Random Distance \(translation.columns.3.z)")
         
         let transform = simd_mul(rotation, translation)
         
