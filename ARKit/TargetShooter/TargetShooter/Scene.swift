@@ -54,12 +54,16 @@ class Scene: SKScene {
         // move the anchor 1.5m out
         var translation = matrix_identity_float4x4
         translation.columns.3.z = targetDistanceRandomizer.nextUniform()
-        print("Random Distance \(translation.columns.3.z)")
         
         let transform = simd_mul(rotation, translation)
         
         let anchor = ARAnchor(transform: transform)
         sceneView.session.add(anchor: anchor)
+        
+        Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { [weak self] (timer) in
+            sceneView.session.remove(anchor: anchor)
+            self?.targetCount -= 1
+        }
     }
     
     func gameOver() {
