@@ -19,11 +19,15 @@ class Scene: SKScene {
     var targetsCreated = 0
     var targetCount = 0 {
         didSet {
-            remainingLabel.text = "Remaining: \(targetCount)"
+            remainingLabel.text = "Remaining: \(targetCount) | Score: \(playerScore)"
         }
     }
     let startTime = Date()
     let targetDistanceRandomizer = GKRandomDistribution(lowestValue: -5, highestValue: -1)
+    var targetExpireTimers = [UUID: Timer?]()
+    var lastTargetHitTime = Date()
+    
+    var playerScore: Int = 0
     
     // Mark: Instance Methods
     
@@ -60,9 +64,15 @@ class Scene: SKScene {
         let anchor = ARAnchor(transform: transform)
         sceneView.session.add(anchor: anchor)
         
-        Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { [weak self] (timer) in
-            sceneView.session.remove(anchor: anchor)
-            self?.targetCount -= 1
+        targetExpireTimers[anchor.identifier] = Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { [weak self] (timer) in
+            if let node = sceneView.node(for: anchor) {
+                node.removeFromParent()
+                self?.targetCount -= 1
+                self?.playerScore -= 100
+                if self?.targetCount == 0 && self?.targetsCreated == 20 { self?.gameOver() }
+            } else {
+                print("node does not exist")
+            }
         }
     }
     
@@ -73,7 +83,7 @@ class Scene: SKScene {
         addChild(gameOver)
         
         let timeTaken = Date().timeIntervalSince(startTime)
-        let timeLabel = SKLabelNode(text: "Time taken: \(Int(timeTaken)) seconds")
+        let timeLabel = SKLabelNode(text: "Time taken: \(Int(timeTaken)) seconds | Total Score: \(playerScore)")
         timeLabel.fontSize = 36
         timeLabel.fontName = "AmericanTypewriter"
         timeLabel.color = .white
@@ -105,11 +115,18 @@ class Scene: SKScene {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
+        guard let sceneView = self.view as? ARSKView else { return }
         
         let location = touch.location(in: self)
         let hit = nodes(at: location)
         
         if let sprite = hit.first {
+            if let anchorId = sceneView.anchor(for: sprite)?.identifier, let targetTimer = targetExpireTimers[anchorId] {
+                targetTimer?.invalidate()
+                targetExpireTimers[anchorId] = nil
+            }
+            
+            
             let scaleOut = SKAction.scale(to: 2, duration: 0.2)
             let fadeOut = SKAction.fadeOut(withDuration: 0.2)
             let group = SKAction.group([scaleOut, fadeOut])
@@ -117,6 +134,9 @@ class Scene: SKScene {
             sprite.run(sequence)
             
             targetCount -= 1
+            print("Time: \(Double(Date().timeIntervalSince(lastTargetHitTime)))")
+            playerScore += Double(Date().timeIntervalSince(lastTargetHitTime)) < 0.6 ? 300 : 200
+            lastTargetHitTime = Date()
             
             if targetsCreated == 20 && targetCount == 0 {
                 gameOver()
