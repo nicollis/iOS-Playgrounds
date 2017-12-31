@@ -78,12 +78,13 @@ class Scene: SKScene {
     
     func gameOver() {
         remainingLabel.removeFromParent()
+        targetCount = -1
         
         let gameOver = SKSpriteNode(imageNamed: "gameOver")
         addChild(gameOver)
         
         let timeTaken = Date().timeIntervalSince(startTime)
-        let timeLabel = SKLabelNode(text: "Time taken: \(Int(timeTaken)) seconds | Total Score: \(playerScore)")
+        let timeLabel = SKLabelNode(text: "Time taken: \(Int(timeTaken))s | Total Score: \(playerScore)")
         timeLabel.fontSize = 36
         timeLabel.fontName = "AmericanTypewriter"
         timeLabel.color = .white
@@ -120,7 +121,8 @@ class Scene: SKScene {
         let location = touch.location(in: self)
         let hit = nodes(at: location)
         
-        if let sprite = hit.first {
+        if let sprite = hit.first as? SKSpriteNode, targetCount != -1 {
+            
             if let anchorId = sceneView.anchor(for: sprite)?.identifier, let targetTimer = targetExpireTimers[anchorId] {
                 targetTimer?.invalidate()
                 targetExpireTimers[anchorId] = nil
@@ -134,7 +136,6 @@ class Scene: SKScene {
             sprite.run(sequence)
             
             targetCount -= 1
-            print("Time: \(Double(Date().timeIntervalSince(lastTargetHitTime)))")
             playerScore += Double(Date().timeIntervalSince(lastTargetHitTime)) < 0.6 ? 300 : 200
             lastTargetHitTime = Date()
             
