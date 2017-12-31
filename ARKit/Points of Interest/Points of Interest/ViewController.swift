@@ -64,7 +64,8 @@ class ViewController: UIViewController {
             let rotation2 = simd_mul(frame.camera.transform, rotation)
             
             var translation = matrix_identity_float4x4
-            translation.columns.3.z = -(distance / 200)
+            print(distance/200)
+            translation.columns.3.z = -min(max((distance / 200), 1), 5)
             let transform = simd_mul(rotation2, translation)
             
             let anchor = ARAnchor(transform: transform)
@@ -204,7 +205,7 @@ extension ViewController: CLLocationManagerDelegate {
             self.headingCount += 1
             if self.headingCount != 2 { return }
             
-            self.userHeading = newHeading.magneticHeading
+            self.userHeading = newHeading.trueHeading
             
             self.locationManager.stopUpdatingHeading()
             self.createSights()
