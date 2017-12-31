@@ -64,7 +64,6 @@ class ViewController: UIViewController {
             let rotation2 = simd_mul(frame.camera.transform, rotation)
             
             var translation = matrix_identity_float4x4
-            print(distance/200)
             translation.columns.3.z = -min(max((distance / 200), 1), 5)
             let transform = simd_mul(rotation2, translation)
             
