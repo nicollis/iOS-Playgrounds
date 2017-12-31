@@ -69,7 +69,7 @@ class ViewController: UIViewController {
             
             let anchor = ARAnchor(transform: transform)
             sceneView.session.add(anchor: anchor)
-            pages[anchor.identifier] = page["title"].string ?? "Unknown"
+            pages[anchor.identifier] = "\(page["title"].string ?? "Unknown") - \(distance.rounded())m"
         }
     }
     
