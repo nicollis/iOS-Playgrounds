@@ -17,7 +17,7 @@ Title says it all in this exciting project we do some basic Unit and UI testing
 
 ## CoreML [link](/CoreML)
 
-### TradeMyTesla(/CoreML/TradeMyTesla)
+### TradeMyTesla [link](/CoreML/TradeMyTesla)
 
 Small project testing CoreML by building an app that suggest the price of your used Tesla.
 - CarsML Folder
