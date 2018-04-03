@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "is really"; ObjectID = "HM5-UI-kgl"; */
+"HM5-UI-kgl.text" = "באמת";
+
+/* Class = "UILabel"; text = "degrees Celsius"; ObjectID = "L1J-M3-FYV"; */
+"L1J-M3-FYV.text" = "מעלות צלזיוס";
+
+/* Class = "UITabBarItem"; title = "Map"; ObjectID = "Rr6-BB-khz"; */
+"Rr6-BB-khz.title" = "מַפָּה";
+
+/* Class = "UILabel"; text = "???"; ObjectID = "XU5-kP-97a"; */
+"XU5-kP-97a.text" = "???";
+
+/* Class = "UILabel"; text = "degrees Fahrenheit"; ObjectID = "caI-Yo-5JC"; */
+"caI-Yo-5JC.text" = "מעלות פרנהייט";
+
+/* Class = "UITextField"; placeholder = "value"; ObjectID = "nEB-A3-sAJ"; */
+"nEB-A3-sAJ.placeholder" = "ערך";
+
+/* Class = "UITabBarItem"; title = "Convert"; ObjectID = "rcN-TN-CEr"; */
+"rcN-TN-CEr.title" = "להמיר";
