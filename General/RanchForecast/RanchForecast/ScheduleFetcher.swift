@@ -71,7 +71,7 @@ class ScheduleFetcher {
             
         } catch {
             print("Unable to deserialize JSON: \(error)")
-            return .failure(error as! ScheduleFetcher.Error)
+            return .failure(Error.invalidJSON(data))
         }
     }
     

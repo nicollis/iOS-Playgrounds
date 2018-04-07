@@ -58,4 +58,26 @@ class ScheduleFetcherTests: XCTestCase {
         waitForExpectations(timeout: 1.0, handler: nil)
     }
     
+    func testResultFrom404HttpResponseAndNoData() {
+        let result = fetcher.digest(data: nil, response: Constants.badResponse, error: nil)
+        
+        switch  result{
+        case .failure(let error):
+            XCTAssertEqual(error.localizedDescription, ScheduleFetcher.Error.unexpectedResponse(nil,nil).localizedDescription)
+        default:
+            XCTFail("Result contins Success, but Failure was expected.")
+        }
+    }
+    
+    func testResultsFromValidHTTPResponseAndInvalidData() {
+        let result = fetcher.digest(data: Constants.badJsonData, response: Constants.okResponse, error: nil)
+        
+        switch  result{
+        case .failure(let error):
+            XCTAssertEqual(error.localizedDescription, ScheduleFetcher.Error.invalidJSON(Constants.badJsonData!).localizedDescription)
+        default:
+            XCTFail("Result contins Success, but Failure was expected.")
+        }
+    }
+    
 }

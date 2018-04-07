@@ -31,7 +31,11 @@ struct Constants {
     
     static let okResponse = HTTPURLResponse(url: url, statusCode: 200, httpVersion: nil, headerFields: nil)
     
+    static let badResponse = HTTPURLResponse(url: url, statusCode: 404, httpVersion: nil, headerFields: nil)
+    
     static let jsonData = try! JSONSerialization.data(withJSONObject: coursesDictionary, options: [])
+    
+    static let badJsonData = "Hello There".data(using: .utf8)
     
     static let session: URLSession = {
         let config = URLSessionConfiguration.ephemeral
