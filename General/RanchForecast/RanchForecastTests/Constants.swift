@@ -27,6 +27,12 @@ struct Constants {
         "upcoming": [["start_date": dateString]]
     ]
     
+    static let invalidCourseDict: [String: Any] = [
+        "title1": title,
+        "url1": urlString,
+        "upcoming1": [["start_date": dateString]]
+    ]
+    
     static let coursesDictionary = ["courses" : [validCourseDict]]
     
     static let okResponse = HTTPURLResponse(url: url, statusCode: 200, httpVersion: nil, headerFields: nil)

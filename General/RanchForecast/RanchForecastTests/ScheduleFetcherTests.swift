@@ -33,6 +33,12 @@ class ScheduleFetcherTests: XCTestCase {
         XCTAssertEqual(course.nextStartDate, Constants.date)
     }
     
+    func testCreateCourseFromInvalidDictionary() {
+        let course: Course? = fetcher.parse(courseDictionary: Constants.invalidCourseDict)
+        
+        XCTAssertNil(course)
+    }
+    
     func testResultFromValidHttpResponseAndValidData() {
         let result = fetcher.digest(data: Constants.jsonData, response: Constants.okResponse, error: nil)
         

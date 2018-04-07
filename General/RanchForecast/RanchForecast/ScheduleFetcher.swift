@@ -76,13 +76,13 @@ class ScheduleFetcher {
     }
     
     func parse(courseDictionary courseDict: [String:Any]) -> Course? {
-        let title = courseDict["title"] as! String
-        let urlString = courseDict["url"] as! String
-        let upcomingArray = courseDict["upcoming"] as! [[String:Any]]
-        let nextUpcomingDict = upcomingArray.first!
-        let nextStartDateString = nextUpcomingDict["start_date"] as! String
-        
-        let url = URL(string: urlString)!
+        guard let title = courseDict["title"] as? String,
+        let urlString = courseDict["url"] as? String,
+        let upcomingArray = courseDict["upcoming"] as? [[String:Any]],
+        let nextUpcomingDict = upcomingArray.first,
+        let nextStartDateString = nextUpcomingDict["start_date"] as? String,
+        let url = URL(string: urlString)
+            else { return nil }
         
         let df = DateFormatter()
         df.dateFormat = "yyyy-MM-dd"
