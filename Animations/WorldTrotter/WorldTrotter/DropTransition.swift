@@ -10,7 +10,7 @@ import UIKit
 
 class DropTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
-    let animationDuration: TimeInterval = 0.25
+    let animationDuration: TimeInterval = 0.5
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return animationDuration
@@ -55,7 +55,7 @@ class DropTransition: NSObject, UIViewControllerAnimatedTransitioning {
             transitionContext.completeTransition(transitionCompleted)
         }
         
-        UIView.animate(withDuration: animationDuration, animations: moveViewsClosure, completion: cleanUpClosure)
+        UIView.animate(withDuration: animationDuration, delay: 0.3, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: [], animations: moveViewsClosure, completion: cleanUpClosure)
     }
     
     private func offscreenTransform(for view: UIView, inContainer container: UIView) -> CGAffineTransform {
