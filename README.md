@@ -47,3 +47,9 @@ Experimental app using the Vision Framework to detech letters and but boxes arou
 ### WorldTrotter [link](/Animations/WorldTrotter)
 
 Application built in Chapture 1 and 2 of Advance iOS Training w/ end chapters completed
+
+## Core Image [link](/Core%20Image)
+
+### Photorama [link](/Core%20Image/Photorama)
+
+Application built that applies filters to images including a custom CI Kernel Lanage Filter
