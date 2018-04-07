@@ -4,11 +4,17 @@
 
 import UIKit
 
-class ConversionViewController: UIViewController, UITextFieldDelegate {
+class ConversionViewController: UIViewController, UITextFieldDelegate, UIViewControllerTransitioningDelegate {
     
     @IBOutlet var celsiusLabel: UILabel!
     @IBOutlet var textField: UITextField!
+    @IBAction func makeItRainClicked(_ sender: Any) {
+        let toView: BlueViewController = self.storyboard?.instantiateViewController(withIdentifier: "ImBlue") as! BlueViewController
+        toView.transitioningDelegate = self
+        present(toView, animated: true)
+    }
     
+    let transition = DropTransition()
     var fahrenheitValue: Double? {
         didSet {
             updateCelsiusLabel()
@@ -34,7 +40,8 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.transitioningDelegate = self
+        navigationController?.delegate = ModalDelegate()
         print("ConversionViewController loaded its view")
     }
     
@@ -76,6 +83,14 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         else {
             fahrenheitValue = nil
         }
+    }
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return nil
     }
     
 }

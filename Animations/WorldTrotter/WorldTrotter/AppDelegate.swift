@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tabDelegate = TabDelegate(tabBarController: tabBarController)
         tabDelegate.layoutDirection = application.userInterfaceLayoutDirection
         tabBarController.delegate = tabDelegate
+        
         return true
     }
 
