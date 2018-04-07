@@ -41,7 +41,6 @@ class ConversionViewController: UIViewController, UITextFieldDelegate, UIViewCon
     override func viewDidLoad() {
         super.viewDidLoad()
         self.transitioningDelegate = self
-        navigationController?.delegate = ModalDelegate()
         print("ConversionViewController loaded its view")
     }
     
@@ -90,7 +89,7 @@ class ConversionViewController: UIViewController, UITextFieldDelegate, UIViewCon
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return nil
+        return transition
     }
     
 }

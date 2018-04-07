@@ -33,7 +33,6 @@
 		877983782069375C0002E5E2 /* SlideTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877983762069375C0002E5E2 /* SlideTransition.swift */; };
 		877983792069375C0002E5E2 /* SlideTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877983762069375C0002E5E2 /* SlideTransition.swift */; };
 		8781CB7820733F6300D76736 /* BlueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8781CB7720733F6300D76736 /* BlueViewController.swift */; };
-		8781CB7A2073406A00D76736 /* ModalDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8781CB792073406A00D76736 /* ModalDelegate.swift */; };
 		8781CB7C207341D500D76736 /* DropTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8781CB7B207341D500D76736 /* DropTransition.swift */; };
 /* End PBXBuildFile section */
 
@@ -85,7 +84,6 @@
 		8781CB7520730AA500D76736 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		8781CB7620730AA500D76736 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8781CB7720733F6300D76736 /* BlueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueViewController.swift; sourceTree = "<group>"; };
-		8781CB792073406A00D76736 /* ModalDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalDelegate.swift; sourceTree = "<group>"; };
 		8781CB7B207341D500D76736 /* DropTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,7 +142,6 @@
 				6BB4AB431B7A5D4200967615 /* AppDelegate.swift */,
 				877983762069375C0002E5E2 /* SlideTransition.swift */,
 				877983722069352F0002E5E2 /* TabDelegate.swift */,
-				8781CB792073406A00D76736 /* ModalDelegate.swift */,
 				8781CB7B207341D500D76736 /* DropTransition.swift */,
 				871EC8D520694BF6001D01CD /* SlideInteraction.swift */,
 				871EC8D920694C8F001D01CD /* UITabBarController+SlideInteraction.swift */,
@@ -316,7 +313,6 @@
 			files = (
 				6BB4AB721B7BD4C500967615 /* ConversionViewController.swift in Sources */,
 				871EC8DE20696405001D01CD /* SlideInteraction+UIGestureRecognizerDelegate.swift in Sources */,
-				8781CB7A2073406A00D76736 /* ModalDelegate.swift in Sources */,
 				6BB4AB781B7BFBA700967615 /* MapViewController.swift in Sources */,
 				877983732069352F0002E5E2 /* TabDelegate.swift in Sources */,
 				6BB4AB441B7A5D4200967615 /* AppDelegate.swift in Sources */,
