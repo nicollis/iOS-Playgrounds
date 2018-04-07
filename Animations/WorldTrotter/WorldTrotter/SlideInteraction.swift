@@ -29,12 +29,10 @@ class SlideInteraction: UIPercentDrivenInteractiveTransition {
         switch gr.state {
         case .began:
             currentlyInteractive = true
-            if dX >= 0 && selectedIndex > 0 {
-                tabBarController.selectedIndex -= 1
-            } else if dX <= 0 && selectedIndex < tabCount {
-                tabBarController.selectedIndex += 1
-            } else {
-                currentlyInteractive = false
+            if dX >= 0 {
+                tabBarController.selectedIndex = selectedIndex == 0 ? tabCount-1 : selectedIndex-1
+            } else if dX <= 0 {
+                tabBarController.selectedIndex = selectedIndex < tabCount-1 ? selectedIndex+1 : 0
             }
         case .changed:
             let fraction = abs(dX / tabBarController.view.bounds.width)

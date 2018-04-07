@@ -28,4 +28,6 @@ add a custom view to the tabbar controller and animate its collor alongside swit
 
 ### Challenge 2: Wrapping around
 
+update the gesture to allow the user to pan from either edge to the other view indefentitly
+
 
