@@ -3,6 +3,7 @@
 //
 
 import UIKit
+import ImageProcessor
 
 class PhotosViewController: UIViewController, UICollectionViewDelegate {
     

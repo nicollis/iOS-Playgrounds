@@ -9,13 +9,13 @@
 import Foundation
 import CoreImage
 
-class HazeRemoveFilter: CIFilter {
+public class HazeRemoveFilter: CIFilter {
     @objc dynamic var inputImage: CIImage?
     @objc dynamic var inputColor: CIColor = CIColor.white
     @objc dynamic var inputDistance: NSNumber = 0.2
     @objc dynamic var inputSlope: NSNumber = 0
     
-    override var attributes: [String : Any] {
+    public override var attributes: [String : Any] {
         return [
             kCIAttributeFilterDisplayName: "Remove Haze",
             
@@ -52,7 +52,7 @@ class HazeRemoveFilter: CIFilter {
         return kernel
     }()
     
-    override var outputImage: CIImage? {
+    public override var outputImage: CIImage? {
         get {
             if let inputImage = self.inputImage {
                 return hazeRemovalKernal?.apply(extent: inputImage.extent, arguments: [

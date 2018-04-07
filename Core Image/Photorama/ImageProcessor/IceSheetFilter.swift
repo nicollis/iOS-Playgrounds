@@ -9,15 +9,15 @@
 import Foundation
 import CoreImage
 
-class IceSheetFilter: CIFilter {
+public class IceSheetFilter: CIFilter {
     @objc dynamic var inputImage: CIImage?
     @objc dynamic var inputIntensity: NSNumber?
     
-    override func setDefaults() {
+    public override func setDefaults() {
         inputIntensity = 0.5
     }
     
-    override var outputImage: CIImage? {
+    public override var outputImage: CIImage? {
         get {
             guard let inputImage = inputImage, let inputIntensity = inputIntensity  else { return nil }
             guard let crystallize = CIFilter(name: "CICrystallize", withInputParameters: [

@@ -18,3 +18,9 @@ Build a custom filter by chaining CIBloom and CICrystallize togeather in a custo
 ### Bonus: Self Created Challenge: Core Image Kernal Langauge Filter!
 
 Built a custom CIFilter by writing and importing a .cikernel file. built one that removes haze and takes custom inputs.
+
+## Chapture 6 Challenges
+
+### Challenge 1: Framework-ify the photo processor
+
+Refactore ImageProcessor.swift and realated files into its own framwork target

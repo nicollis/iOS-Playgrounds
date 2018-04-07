@@ -9,17 +9,17 @@
 import Foundation
 import CoreImage
 
-class CustomFiltersVendor: NSObject, CIFilterConstructor {
+public class CustomFiltersVendor: NSObject, CIFilterConstructor {
     public static let IceSheetFilterName = "IceSheetFilter"
     public static let HazeRemoveFilterName = "HazeRemoveFilter"
     
-    static func registerFilters() {
+    public static func registerFilters() {
         let classAttributes = [kCIAttributeFilterCategories: ["CustomFilters"]]
         IceSheetFilter.registerName(IceSheetFilterName, constructor: CustomFiltersVendor(), classAttributes: classAttributes)
         HazeRemoveFilter.registerName(HazeRemoveFilterName, constructor: CustomFiltersVendor(), classAttributes: classAttributes)
     }
     
-    func filter(withName name: String) -> CIFilter? {
+    public func filter(withName name: String) -> CIFilter? {
         switch name
         {
         case CustomFiltersVendor.IceSheetFilterName:

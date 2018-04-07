@@ -8,15 +8,15 @@
 
 import UIKit
 
-class ImageProcessor {
+public class ImageProcessor {
     
-    enum Action {
+    public enum Action {
         case scale(maxSize: CGSize)
         case pixellateFaces
         case filter(Filter)
     }
     
-    enum Filter {
+    public enum Filter {
         case none
         case gloom(intensity: Double, radius: Double)
         case sepia(intensity: Double)
@@ -26,25 +26,25 @@ class ImageProcessor {
         case glass(intensity: Double)
     }
     
-    enum Error: Swift.Error {
+    public enum Error: Swift.Error {
         case incompatibleImage
         case failedToRender
         case filterConfiguration(name: String, params: [String: AnyObject]?)
         case cancelled
     }
     
-    enum Priority {
+    public enum Priority {
         case high
         case low
     }
     
-    enum Result {
+    public enum Result {
         case success(UIImage)
         case failure(Swift.Error)
         case cancelled
     }
     
-    typealias ResultHandler = (Result) -> Void
+    public typealias ResultHandler = (Result) -> Void
     
     private let processingQueue: OperationQueue = {
         let queue = OperationQueue()
@@ -52,7 +52,9 @@ class ImageProcessor {
         return queue
     }()
     
-    func process(image: UIImage, actions: [Action], priority: ImageProcessor.Priority, completion: @escaping ResultHandler) -> ImageProcessingRequest {
+    public init(){}
+    
+    public func process(image: UIImage, actions: [Action], priority: ImageProcessor.Priority, completion: @escaping ResultHandler) -> ImageProcessingRequest {
         let imageOp = ImageProcessingOperation(image: image, actions: actions, priority: priority, completion: completion)
         let request = ImageProcessingRequest(operation: imageOp, queue: processingQueue)
         processingQueue.addOperation(imageOp)

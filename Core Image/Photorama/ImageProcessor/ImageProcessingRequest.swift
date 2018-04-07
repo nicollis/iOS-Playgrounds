@@ -8,11 +8,11 @@
 
 import Foundation
 
-class ImageProcessingRequest {
+public class ImageProcessingRequest {
     private var operation: ImageProcessingOperation
     private let queue: OperationQueue
     
-    var priority: ImageProcessor.Priority = .low {
+    public var priority: ImageProcessor.Priority = .low {
         didSet(oldPriority) {
             guard priority != oldPriority else { return }
             guard !operation.isExecuting else { return }
@@ -28,7 +28,7 @@ class ImageProcessingRequest {
         self.queue = queue
     }
     
-    func cancel() {
+    public func cancel() {
         operation.cancel()
     }
 }

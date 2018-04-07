@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageProcessingOperation: Operation {
+public class ImageProcessingOperation: Operation {
     var image: UIImage?
     let actions:  [ImageProcessor.Action]
     let completion: ImageProcessor.ResultHandler
@@ -36,12 +36,12 @@ class ImageProcessingOperation: Operation {
         self.init(image: image, actions: operation.actions, priority: priority, completion: operation.completion)
     }
     
-    override func cancel() {
+    public override func cancel() {
         super.cancel()
         image = nil
     }
     
-    override func main() {
+    public override func main() {
         guard let image = image else { completion(.cancelled); return }
         
         do {

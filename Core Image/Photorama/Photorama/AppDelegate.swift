@@ -3,6 +3,7 @@
 //
 
 import UIKit
+import ImageProcessor
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
