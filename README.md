@@ -41,3 +41,9 @@ ARKit app that uses your location and queries Wikipedia to find points of intere
 ### WordFinder [link](/Vision/WordFinder)
 
 Experimental app using the Vision Framework to detech letters and but boxes around each letter and words.
+
+## Animations [link](/Animations)
+
+### WorldTrotter [link](/Animations/WorldTrotter)
+
+Application built in Chapture 1 and 2 of Advance iOS Training w/ end chapters completed
