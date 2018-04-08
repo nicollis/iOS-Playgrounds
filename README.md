@@ -19,6 +19,10 @@ Title says it all in this exciting project we do some basic Unit and UI testing
 
 Another Application playing around more with Unit Test including dummy data for testing networking layer
 
+### Wordalysis
+
+Application playing around with GCD and custom kernel level timers to get word counds working at screen referesh rates.
+
 ## CoreML [link](/CoreML)
 
 ### TradeMyTesla [link](/CoreML/TradeMyTesla)
