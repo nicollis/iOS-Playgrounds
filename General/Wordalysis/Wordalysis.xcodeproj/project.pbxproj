@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87A9097D207AB18900EBBF25 /* WordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9097C207AB18900EBBF25 /* WordsTableViewController.swift */; };
 		87F9C7B9206BE1DB00B72E41 /* Locked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F9C7B8206BE1DB00B72E41 /* Locked.swift */; };
 		A671ABD31DDBE6C4007B19AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A671ABCE1DDBE6C4007B19AF /* AppDelegate.swift */; };
 		A671ABD41DDBE6C4007B19AF /* FilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A671ABCF1DDBE6C4007B19AF /* FilesViewController.swift */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		87A9097B2079978D00EBBF25 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		87A9097C207AB18900EBBF25 /* WordsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsTableViewController.swift; sourceTree = "<group>"; };
 		87F9C7B8206BE1DB00B72E41 /* Locked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locked.swift; sourceTree = "<group>"; };
 		A64803271D9F0C4D003CF770 /* Wordalysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wordalysis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A671ABCE1DDBE6C4007B19AF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Wordalysis/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
@@ -98,6 +100,7 @@
 				A671ABD21DDBE6C4007B19AF /* WordCounter.swift */,
 				87F9C7B8206BE1DB00B72E41 /* Locked.swift */,
 				A671ABCF1DDBE6C4007B19AF /* FilesViewController.swift */,
+				87A9097C207AB18900EBBF25 /* WordsTableViewController.swift */,
 				A6FF6FF7205631F100B8275C /* Supporting Files */,
 			);
 			path = Wordalysis;
@@ -207,6 +210,7 @@
 				A671ABD61DDBE6C4007B19AF /* TextFinder.swift in Sources */,
 				A671ABD41DDBE6C4007B19AF /* FilesViewController.swift in Sources */,
 				A671ABD31DDBE6C4007B19AF /* AppDelegate.swift in Sources */,
+				87A9097D207AB18900EBBF25 /* WordsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

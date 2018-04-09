@@ -113,6 +113,17 @@ class FilesViewController: UITableViewController {
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "BookSegue":
+            guard let vc = segue.destination as? WordsTableViewController,
+                    let index = tableView.indexPathForSelectedRow?.row else { return }
+            vc.words = counters[index]
+        default:
+            return
+        }
+    }
+    
     // MARK: - All Done!
     
     func presentCompletionAlert() {
