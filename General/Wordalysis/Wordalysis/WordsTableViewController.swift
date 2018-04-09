@@ -13,6 +13,7 @@ class WordsTableViewController: UITableViewController {
     var words: WordCounter!
     var sortedWords: [(key: String, value: Int)] = []
     var timer: DispatchSourceTimer?
+    var displayLink: CADisplayLink!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,29 +40,34 @@ class WordsTableViewController: UITableViewController {
     
     func startUpdating() {
         timer = DispatchSource.makeTimerSource(flags: [], queue: .main)
-        timer?.schedule(deadline: .now(), repeating: .milliseconds(16), leeway: .microseconds(5))
+        timer?.schedule(deadline: .now(), repeating: .milliseconds(32), leeway: .microseconds(5))
         timer?.setEventHandler(qos: .userInitiated, flags: [], handler: self.update)
         timer?.resume()
+        displayLink = CADisplayLink(target: self, selector: #selector(displayUpdate))
+        displayLink.add(to: .current, forMode: .defaultRunLoopMode)
     }
     
     func stopUpdating() {
         timer?.cancel()
         timer = nil
         update()
+        displayLink.invalidate()
     }
     
     func update() {
-        navigationItem.title = "\(words.currentState.totalCount) words"
-        guard let visibleIndexPaths = tableView.indexPathsForVisibleRows else { return }
-
         sortedWords = words.currentState.wordList.sorted(by: { $0.1 > $1.1 })
         tableView.reloadData()
+    }
+    
+    @objc func displayUpdate() {
+        navigationItem.title = "\(words.currentState.totalCount) words"
+        guard let visibleIndexPaths = tableView.indexPathsForVisibleRows else { return }
         
         for indexPath in visibleIndexPaths {
             guard let cell = tableView.cellForRow(at: indexPath),
                 let key = cell.detailTextLabel?.text,
                 let count = words.currentState.wordList[key]
-            else { continue }
+                else { continue }
             cell.textLabel?.text = String(count)
         }
     }

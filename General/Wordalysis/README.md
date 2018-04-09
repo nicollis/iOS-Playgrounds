@@ -18,4 +18,10 @@ I can't find the playground so skipping this challenge
 
 show a list of words in each book that update reguaraly
 
-**Bonus: Book** re-sort table to reflect changes in word count (not I did this on the 16ms timer, this isn't a good idea due to the overhead it would cause some refershes to time out really you would want to create a second timer that has more of a slower refersh and lower on the qos chain)
+**Bonus: Book** re-sort table to reflect changes in word count
+
+### Challenge 4: CADisplayLink
+
+Implement screen updates using the CADisplayLink object instead of the DispatchSourceTimer. 
+
+**Bonus: self** implement CADisplayLink on the Words screen as well, Keep the DST around for a every other frame resorting and rerender of the table.

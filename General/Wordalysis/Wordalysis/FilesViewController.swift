@@ -13,7 +13,7 @@ class FilesViewController: UITableViewController {
     let textFinder = TextFinder()
     var counters: [WordCounter] = []
     var progressGroup = DispatchGroup()
-    var timer: DispatchSourceTimer?
+    var displayLink: CADisplayLink!
     var totalCount: Int {
         let total = counters.map({$0.currentState.totalCount}).reduce(0, +)
         return total
@@ -28,12 +28,13 @@ class FilesViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        startUpdating()
+        displayLink = CADisplayLink(target: self, selector: #selector(update))
+        displayLink.add(to: .current, forMode: .defaultRunLoopMode)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        stopUpdating()
+        displayLink.invalidate()
     }
     
     // MARK: - Custom View Lifecycle Methods
@@ -74,20 +75,7 @@ class FilesViewController: UITableViewController {
         }
     }
     
-    func startUpdating() {
-        timer = DispatchSource.makeTimerSource(flags: [], queue: .main)
-        timer?.schedule(deadline: .now(), repeating: .milliseconds(16), leeway: .microseconds(5))
-        timer?.setEventHandler(qos: .userInitiated, flags: [], handler: self.update)
-        timer?.resume()
-    }
-    
-    func stopUpdating() {
-        timer?.cancel()
-        timer = nil
-        update()
-    }
-    
-    func update() {
+    @objc func update() {
         navigationItem.title = "\(totalCount) words"
         guard let visibleIndexPaths = tableView.indexPathsForVisibleRows else { return }
         
@@ -135,6 +123,7 @@ class FilesViewController: UITableViewController {
         }
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
+        displayLink.invalidate()
     }
     
 }
