@@ -34,6 +34,10 @@ Small project testing CoreML by building an app that suggest the price of your u
 - - Cars.mlmodel: Generated CoreML Model
 - TradeMyTesla: Project folder for the XCode Project
 
+### HealthyFoods [link](/CoreML/HealthyFoods)
+
+Another small project testing CoreML with a Image Classifier to detect healthy and unhealthy food objects
+
 ## ARKit [link](/ARKit)
 
 ### TargetShooter [link](/ARKit/TargetShooter)
