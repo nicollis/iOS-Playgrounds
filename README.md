@@ -38,6 +38,10 @@ Small project testing CoreML by building an app that suggest the price of your u
 
 Another small project testing CoreML with a Image Classifier to detect healthy and unhealthy food objects
 
+### MultiSnacks Model Source
+
+Mostly just a playground and data, this was used to generate a CoreML model that can identify multiple food items in a single photo.
+
 ## ARKit [link](/ARKit)
 
 ### TargetShooter [link](/ARKit/TargetShooter)
